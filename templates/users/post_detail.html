@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load users_work %}
+    {% block main %}
+        <style>
+
+         body{ text-align:center}
+        </style>
+
+
+        <link type="text/css" rel="stylesheet" href="{% static 'artist/css/text.css' %}"/>
+<div class="banner-two">
+</div>
+<!--banner end here-->
+<!--typo start here-->
+<div class="typrography">
+	<div class="container">
+	<div class="page">
+
+		<!--button-->
+
+
+  <!--<div class="bs-example">
+    <table class="table">
+      <body>
+       {% get_categories as category_list %}
+      {% for category in category_list %}
+    <li>
+      <a href="{% url 'users:category' category.pk %}">{{ category.name }} <span class="post-count">(13)</span></a>
+    </li>
+    {% empty %}
+    暂无分类�1
+    {% endfor %}-->
+
+
+
+            <h1 class="entry-title">{{ post.title }}</h1>
+
+
+
+   <div class="g-bd">
+      <div class="g-bdc box">
+
+         <div class="m-postlst">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="m-post m-post-img   ">
+               <div class="postinner">
+
+                  <div class="ct">
+                     <div class="ctc box">
+
+                        <div class="pic">
+
+                        </div>
+
+
+
+
+                        <div class="text">
+
+                        {{ post.body|safe }}
+
+
+
+                        </div>
+
+                     </div>
+                  </div>
+
+
+
+
+
+
+                  <div class="info box">
+
+
+                     <div class="info0 box">
+                        <a class="date" >{{ post.created_time }}</a>
+
+                        <span>/</span><a class="hot" href=" {{ post.get_absolute_url }}">热度：{{ post.comment_set.count }}</a>
+                     </div>
+                  </div>
+
+
+               </div>
+            </div>
+
+         </div>
+
+
+
+
+
+
+      </div>
+   </div>
+
+
+
+<ul class="comment-list list-unstyled">
+  {% for comment in comment_list %}
+  <li class="comment-item">
+
+
+  <div class="bann-info">
+	<div class="container">
+		<div class="bann-info-main">
+			    <div class="col-md-3 bann-grid">
+			    	<div class="agro-grain">    <img class="example-image" src="{{ comment.avatar.avatar.url }}" alt=""height="150" width="150" /></div>
+			    </div>
+
+			    <div class="col-md-6 bann-grid">
+			    	<h6>{{ comment.created_time }}</h6>
+			    	<h3> {{ comment.text }}   </h3>
+
+			    </div>
+            <p> {{ comment.author }}   </p>
+
+			    <div class="col-md-3 bann-grid">
+			    	<img src="images/cucumber.jpg" alt="" class="img-responsive">
+ 			    </div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+  </li>
+  {% empty %}
+  暂无评论
+  {% endfor %}
+</ul>
+
+
+{% if is_paginated %}
+<div class="pagination-simple">
+  <!-- 如果当前页还有上一页，显示一个上一页的按钮 -->
+  {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">上一页</a>
+  {% endif %}
+  <!-- 显示当前页面信息 -->
+  <span class="current">第 {{ page_obj.number }} 页 / 共 {{ paginator.num_pages }} 页</span>
+  <!-- 如果当前页还有下一页，显示一个下一页的按钮 -->
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">下一页</a>
+  {% endif %}
+</div>
+{% endif %}
+
+
+
+<form action="{% url 'users:post_comment' post.pk %}" method="post" class="comment-form">
+  {% csrf_token %}
+  <div class="row">
+
+
+    <div class="comment-list-panel">
+      <label for="{{ form.text.id_for_label }}">评论：</label>
+      {{ form.text }}
+      {{ form.text.errors }}{% if user.is_authenticated %}
+      <button type="submit" class="comment-btn">发表</button>
+          {% else %}<a href="{% url 'login' %}"><h3><b>请先登录！</b></h3></a>
+
+        {% endif %}
+    </div>
+  </div>    <!-- row -->
+</form>
+
+      </body>
+    </table>
+    </div>
+
+  </div>
+  <!--buttons-->
+
+       <!--//Panels-->
+        <!--labels-->
+
+</div>
+<!--typo end here-->
+<!--footer start here-->
+
+    {% endblock main %}
+
+<!--banner start here-->
+
+<!--//footer-->

@@ -1,0 +1,209 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>次元窗-商家画师交流约稿平台</title>
+<link href="{% static 'artist/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static 'artist/js/jquery-1.11.0.min.js' %}"></script>
+<!-- Custom Theme files -->
+<link href="{% static 'artist/css/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }>
+</script>
+<meta name="keywords" content="Agrom Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndriodCompatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<!--Google Fonts-->
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="{% static 'artist/js/move-top.js' %}"></script>
+<script type="text/javascript" src="{% static 'artist/js/easing.js' %}"></script>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+</script>
+<!-- //end-smoth-scrolling -->
+<script src="{% static 'artist/js/menu_jquery.js' %}"></script>
+
+<!---pop-up-box---->
+					<link href="{% static 'artist/css/popuo-box.css' %}" rel="stylesheet" type="text/css" media="all"/>
+					<script src="{% static 'artist/js/jquery.magnific-popup.js' %}" type="text/javascript"></script>
+					<!---//pop-up-box---->
+					 <script>
+						$(document).ready(function() {
+						$('.popup-with-zoom-anim').magnificPopup({
+							type: 'inline',
+							fixedContentPos: false,
+							fixedBgPos: true,
+							overflowY: 'auto',
+							closeBtnInside: true,
+							preloader: false,
+							midClick: true,
+							removalDelay: 300,
+							mainClass: 'my-mfp-zoom-in'
+						});
+																						
+						});
+				</script>
+	<style type="text/css">
+		#login {
+		}
+		#login2 {
+		}
+
+	</style>
+</head>
+<body>
+<!--header start here-->
+<div class="header">
+	<div class="container">
+		<div class="header-main">
+			   <div class="head-left">
+				   	<div class="phone">
+				   		<p> <span class="ph-numb"></span></p>
+
+
+					</div>
+				   	<div class="search">		
+			              <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><i> </i></a>
+		            </div>
+				     <div id="small-dialog" class="mfp-hide">
+					<div class="search-top">
+							<div class="login">
+								<input type="submit" value="">
+								<input type="text" value="Search Here..." onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '';}">		
+							</div>
+							<p>Agrom</p>
+						</div>				
+					</div>
+	        <!---->
+	              <div class="clearfix"> </div>
+                </div>
+			   <div class="header-right">
+				   <div class="logo">
+				   	   <h1><a href="{% url 'artist:index' %}">次元窗</a></h1>
+				   </div>
+				   <div class="header-login">
+					 <div class="top-nav-right">
+						<div id="loginContainer"><a href="#" id="loginButton"><span>用户</span></a>
+							    <div id="loginBox">
+							        <form id="loginForm">
+							                <fieldset id="body">
+
+
+												{% if user.is_authenticated %}
+
+<button id="login" style="background:#c7e89d;color:red ">
+  						<a href="{% url 'logout' %}?next={{ request.path }}">注销</a></button>
+
+												{% else %}
+                                                    <button id="login" style="background:#c7e89d;color:red ">
+  						<a href="{% url 'login' %}">登录</a></button>
+											<button id="login" style="background:#c7e89d;color:red ">
+  						<a href="{% url 'users:register' %}">注 册</a></button>
+
+{% endif %}
+
+
+
+							            	</fieldset>
+							            <span><a href="{% url 'users:update_profile' %}">个人资料</a></span><span><a href="{% url 'users:works_new' %}">上传作品</a></span>
+								 </form>
+					        </div>
+					  </div>
+				   </div>
+		      </div>
+
+		    <div class="clearfix"> </div>
+	     </div>
+	     <div class="clearfix"> </div>
+     </div>
+   </div>
+</div>
+<!--header end here-->
+<!--top nav start here-->
+<div class="top-navg-main">
+	<div class="container">
+	    <div class="top-navg">
+	    	           <span class="menu"> <img src="images/icon.png" alt=""/></span>
+				<ul class="res">
+				    <li><a href="{% url 'artist:index' %}" class="active hvr-sweep-to-bottom">主页</a></li>
+
+					<li><a class="hvr-sweep-to-bottom" href="{% url 'artist:services' %}">资讯&教程</a></li>
+					<li><a class="hvr-sweep-to-bottom" href="{% url 'artist:typo' %}">约稿栏</a></li>
+					<li><a class="hvr-sweep-to-bottom" href="{% url 'artist:gallery' %}">作品集</a></li>
+					<li><a class="hvr-sweep-to-bottom" href="{% url 'users:posting_work' %}">画廊</a></li>
+                    <li><a class="hvr-sweep-to-bottom" href="{% url 'artist:about' %}">关于我们</a></li>
+				 </ul>
+					<!-- script-for-menu -->
+						 <script>
+						   $( "span.menu" ).click(function() {
+							 $( "ul.res" ).slideToggle( 300, function() {
+							 // Animation complete.
+							  });
+							 });
+						</script>
+		        <!-- /script-for-menu -->
+		   </div>
+	 </div>
+</div>
+<!--top nav end here-->
+
+<!--banner start here-->
+
+
+    {% block main %}
+    {% endblock main %}
+
+<!--banner end here-->
+<!--bann-info start here-->
+
+<!--bann info end here-->
+<!--wedo start here-->
+
+<!--we do end here-->
+<!--agrom strip start here-->
+
+<!--agrom strip end here-->
+<!--latest-news start here-->
+
+<!--latest news end here-->
+<!--footer start here-->
+
+<!--//footer--> 
+</body>
+<div class="footer">
+	<div class="container">
+		<div class="footer-main">
+			  <div class="col-md-4 ftr-grd">
+			  	 <h3>联系 我们</h3>
+			  	 <p>闽南师范大学</p>
+			  	 <p>By. Wucun</p>
+			  	 <p>Numeber 1408180150</p>
+			  </div>
+			  <div class="col-md-4 ftr-grd">
+			  	 <h3>Follow Us</h3>
+			  	 <ul>
+			  	 	<li><a href="http://www.mnnu.edu.cn/"><span class="fa"> </span></a></li>
+			  	 	<li><a href="http://www.ituite.com/"><span class="tw"> </span></a></li>
+			  	 	<li><a href="http://www.google.com/"><span class="g"> </span></a></li>
+			  	 	<li><a href="https://weibo.com/u/2076477795"><span class="in"> </span></a></li>
+			  	 </ul>
+			  </div>
+			  <div class="col-md-4 ftr-grd">
+			  	 <h3>PAINTER DATING AND CONTRIBUTING PORTAL SITE </h3>
+			  	 <p>打造互动、交流画师门户网站。你可以约稿！交友！查找到相关约稿资讯、作画教程！</p>
+
+			  </div>
+			<div class="clearfix"> </div>
+			<div class="copy-right">
+			<p>Copyright &copy; 2018.Company name All rights reserved.More Templates  - Website by wucun</p>
+		   </div>
+		</div>
+	</div>
+</div>
+</html>

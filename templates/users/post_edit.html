@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+    {% block main %}
+<div class="banner-two">
+</div>
+<!--banner end here-->
+<!--contact start here-->
+<div class="contact">
+		<div class="container">
+			<div class="contact-top">
+				<h3>文章编辑</h3>
+				<p> 画师请遵守画师社区守则发布帖子。</p>
+			</div>
+
+			<div class="contact-infom">
+				<h4>！请遵守画师社区规则！</h4>
+				<p>禁止发布色情非法内容，违反行政法规禁止的其他内容的文章！在发布原创内容需要在尾部表明原创。发布临摹、转载内容需要在文章末尾贴上转载链接！如果恶意刷帖刷回复，一经发现永久封禁。请珍惜自己的账号！</p>
+			</div>
+			<form class="contact-form" a method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+
+
+                      <h4>标题</h4> <input type="text" name="title" value="{{ obj.title }}"/>
+					<textarea type="text" name="body">{{ obj.body }}</textarea>
+					<input type="submit" value="提交修改" >
+
+
+			</form>
+
+		</div>
+	</div>
+<!--contact end here-->
+<!--footer start here-->
+
+    {% endblock main %}
+
+

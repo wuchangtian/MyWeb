@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load users_work %}
+    {% block main %}
+        <style>
+
+         body{ text-align:center}
+        </style>
+
+
+        <link type="text/css" rel="stylesheet" href="{% static 'artist/css/text.css' %}"/>
+<div class="banner-two">
+</div>
+<!--banner end here-->
+<!--typo start here-->
+<div class="typrography">
+	<div class="container">
+	<div class="page">
+
+		<!--button-->
+
+
+
+
+
+
+            <h1 class="entry-title">{{ post123.title }}</h1>
+
+
+
+   <div class="g-bd">
+      <div class="g-bdc box">
+
+         <div class="m-postlst">
+
+            <div class="m-post m-post-img   ">
+               <div class="postinner">
+
+                  <div class="ct">
+                     <div class="ctc box">
+
+                        <div class="pic">
+
+                        </div>
+
+
+
+
+                        <div class="text">
+
+                        {{ post123.body|safe }}
+
+
+
+                        </div>
+
+                     </div>
+                  </div>
+
+
+
+
+
+
+                  <div class="info box">
+
+
+                     <div class="info0 box">
+                        <a class="date" >{{ post123.created_time }}</a>
+
+                        <span>/</span><a class="hot" href=" {{ post123.get_absolute_url }}"></a>
+                     </div>
+                  </div>
+
+
+               </div>
+            </div>
+
+         </div>
+
+
+
+
+
+
+      </div>
+   </div>
+
+
+
+
+
+
+
+
+
+      </body>
+    </table>
+    </div>
+
+  </div>
+  <!--buttons-->
+
+       <!--//Panels-->
+        <!--labels-->
+
+</div>
+<!--typo end here-->
+<!--footer start here-->
+
+    {% endblock main %}
+
+<!--banner start here-->
+
+<!--//footer-->

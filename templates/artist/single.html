@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+    {% block main %}
+<div class="banner-two">
+</div>
+<!--banner end here-->
+<!--single-->
+			<div class="container">
+				<div class="single">
+
+					<div class=" single-grid">
+						<h4><b>平台约稿需知</b></h4>
+
+							<div class="cal">
+							<ul>
+								<li><span><i class="glyphicon glyphicon-calendar"> </i>12.1.2017</span></li>
+								<li><a href="#"><i class="glyphicon glyphicon-comment"> </i>0</a></li>
+							</ul>
+						</div>
+						<h4 class="media-heading">交流的工作流程</h4>
+
+ <p>您和画师对接成功后，应该先和画师确定好作画需求。确认完毕后，您需要先预付一个阶段保证金到平台，画师会在看到保证金后，开始对应阶段的工作。当阶段工作完成时，画师会将阶段稿件上传至稿件夹中供您确认和反馈，在您确认阶段稿件没有问题后，支付下一阶段的保证金，如此循环直到确认收稿。 </p>
+
+
+
+<h4 class="media-heading">	与画师明确沟通需求</h4>
+
+ <p>无论您的企划内容是否详尽，在为画师支付保证金前，请先和画师确认所有的作画需求和细节要求，例如尺寸大小、颜色模式、截稿日期等等，这可以确保画师是完全理解您的需要才开始的工作，避免在工作开始后才发现双方的理解有误，造成返工，从而影响您的进度。 </p>
+
+<h4 class="media-heading">	在每个阶段都进行反馈</h4>
+ <p>次元窗会默认将工作流程分为【草稿】、【线稿】、【上色】三个流程，画师通常也会按照阶段来提交稿件。您应该在每个阶段都对画师的稿件进行反馈，让画师及时修改稿件，保证所有问题可以尽早被发现解决。 </p>
+
+
+
+
+
+<p>以上是次元窗的工作流程和注意事项的简单介绍，希望可以帮助到您。</p>
+						<img class="img-responsive" src="static/artist/images/b1.jpg" alt="">
+					</div>
+					<div class="comments-top">
+						<h3>注意Q&A</h3>
+						<div class="media">
+					      	<div class="media-body">
+						        <h4 class="media-heading">Q：我应当怎样接受画师的稿件呢？</h4>
+						        <p>
+A：当您支付全额保证金且画师作画完毕后，画师会将源文件提交至稿件夹，请您务必先下载源文件，确定稿件内容、颜色模式、尺寸等都符合要求后，再通过网站确认收稿。如果源文件与您的要求不一致，您可以要求画师进行修改，确认源文件符合要求后再确认收稿。 </p>
+
+					      	</div>
+
+					 </div>
+					  <div class="media">
+					      <div class="media-left">
+					        <a href="#">
+					        	<img src="static/artist/images/si.png" alt="">
+					        </a>
+					      </div>
+					      <div class="media-body">
+					        <h4 class="media-heading">！特别注意！</h4>
+					        <p> “次元窗”仅仅是画师与商家交流的平台，不承担任何法律风险！若有发现骗稿行为欢迎举报！官方邮箱：306368085@qq.com，我们会以最快速度协助您解决问题。  </p>
+					      </div>
+
+					    </div>
+    				</div>
+    				<div class="comment-bottom">
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}	{% if user.is_authenticated %}
+  <button type="submit" class="save btn btn-default"><h3><b>开始约稿吧！</b></h3></button>
+            {% else %}
+            <a href="{% url 'login' %}"><h3><b>开始约稿吧！</b></h3></a>
+        {% endif %}
+    </form>
+
+
+    				</div>
+				</div>
+			</div>
+<!--//single-->
+
+    {% endblock main %}
+
+<!--top nav end here-->
+<!--banner start here-->
+
+
+</html>

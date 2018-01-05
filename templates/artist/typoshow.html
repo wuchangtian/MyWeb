@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load users_work %}
+    {% block main %}
+    <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Free Bootstrap Themes by Html5xCss3 dot com - Free Responsive Html5 Templates">
+    <meta name="author" content="#">
+
+    <title>SimplePix | Free Html5 Templates by </title>
+     <style>
+        .div1{
+            width:300px;
+            height:400px;
+            border:1px solid #4EC83B;
+            overflow: hidden;
+        }
+        .div1 img {
+            position: relative;
+            left: -100px;
+            top: -150px;
+        }
+         body{ text-align:center}
+        </style>
+	<link rel="stylesheet" href="{% static 'artist/css/menu.css' %}">
+
+	<!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'artist/css/style.css' %}">
+
+	<!-- Custom Fonts -->
+    <link rel="stylesheet" href="{% static 'artist/font-awesome-4.4.0/css/font-awesome.min.css' %}"  type="text/css">
+
+	<link rel="stylesheet" href="{% static 'artist/css/lightbox.css' %}">
+
+	<!-- Core JavaScript Files -->
+
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="{% static 'artist/js/html5shiv.js' %}"></script>
+        <script src="{% static 'artist/js/respond.min.js' %}"></script>
+    <![endif]-->
+</head>
+        <div class="banner-two">
+<div class="gallery">
+	<div class="container">
+
+		<div class="gallery-bottom">
+
+
+
+		   <div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<html lang="en">
+
+<body>
+
+				<div class="bottom-item">
+                     {% get_works as work_list %}
+                                {% for work in work_list %}
+
+                    <a href="{% url 'users:work_detail2' work.pk %}" class="btn btn-share share"><b>{{ work.name }}</b></a>
+                                    {% empty %}
+                                    暂无分类！
+                                    {% endfor %}
+                </div>
+
+    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
+	<div id="page-content" class="index-page">
+		<div id="container">
+			<!-- These are our grid blocks -->
+
+         {% for post in post_list %}
+             <div style="float:left;margin:10px;">
+			<div class="item">
+				<a class="example-image-link" href="{{ post.work.url }}" data-lightbox="example-set" data-title="{{ post.intorduce }}"><img class="example-image" src="{{ post.work.url }}" alt=""height="400" width="400" /></a>
+				<div class="content-item">
+					<h3 class="title-item"><a href="single.html">{{ post.titles|truncatechars:12 }}</a></h3>
+					<div class="time">by---{{ post.author }}</div>
+                    <div class="time">tags:{{ post.tags }}</div>
+					<p class="info">{{ post.intorduce|truncatechars:30  }}</p>
+
+				</div>
+
+			</div>
+              </div>
+{% endfor %}
+			</div>
+		</div>
+	</div>
+
+
+    <!-- Once the page is loaded, initialized the plugin. -->
+    <script type="text/javascript" src="{% static 'artist/js/jquery-2.1.1.js' %}" ></script>
+
+	<!-- jQuery Pinterest -->
+    <script type="text/javascript" src="{% static 'artist/js/jquery.pinto.js' %}"></script>
+    <script type="text/javascript" src="{% static 'artist/js/main.js' %}"></script>
+
+	<!-- Light Box -->
+	<script src="{% static 'artist/js/lightbox-plus-jquery.min.js' %}"></script>
+
+	<!-- Menu -->
+	<script src="{% static 'artist/js/script.js' %}"></script>
+
+	<script type="text/javascript">
+		$('#container').pinto();
+	</script>
+
+</body>
+</html>
+
+<link rel="stylesheet" type="text/css"  href="{% static 'artist/css/magnific-popup.css' %}">
+			<script type="text/javascript" src="{% static 'artist/js/nivo-lightbox.min.js' %}"></script>
+				<script type="text/javascript">
+				$(document).ready(function(){
+				    $('#nivo-lightbox-demo a').nivoLightbox({ effect: 'fade' });
+				});
+				</script>
+
+
+<!--gallery end here-->
+
+
+    {% endblock main %}

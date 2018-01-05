@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+    {% block main %}
+<!--top nav end here-->
+<!--banner start here-->
+<div class="banner-two">
+</div>
+<!--banner end here-->
+<!--services start here-->
+<div class="services">
+	<div class="container">
+		<div class="services-main">
+			<div class="services-top">
+				<h3><B>次元窗</B></h3>
+				<h2>专注于画师交流与商家约稿的门户网站！</h2>
+			</div>
+
+
+			<div class="services-bottom">
+				<div class="main-serv">
+					<div class="col-md-3 main-serv-grid">
+						<a href="single.html"><img src="static/artist/images/s1.jpg" alt="" class="img-responsive"></a>
+						<h4>精美画作</h4>
+						<p>过审画师，作品精美，画风成熟。不同风格领域，应对不同需求约稿！</p>
+					</div>
+					<div class="col-md-3 main-serv-grid">
+						<a href="single.html"><img src="static/artist/images/s2.jpg" alt="" class="img-responsive"></a>
+						<h4>节约成本</h4>
+						<p>没有转包中介，画师直接报价，每一分成本都体现在质量，高性价比的选择！</p>
+					</div>
+					<div class="col-md-3 main-serv-grid">
+						<a href="single.html"><img src="static/artist/images/s3.jpg" alt="" class="img-responsive"></a>
+						<h4>信誉保证</h4>
+						<p>完善的信誉体系，真实交易评价，多项信誉数据，全程交易担保，放心合作！</p>
+					</div>
+					<div class="col-md-3 main-serv-grid">
+						<a href="single.html"><img src="static/artist/images/s4.jpg" alt="" class="img-responsive"></a>
+						<h4>直接沟通</h4>
+						<p>评论画作，与画师一对一沟通细节，实时传要求意见，提高合作效率！获得更多的分享乐趣~！</p>
+					</div>
+				  <div class="clearfix"> </div>
+				</div>
+				<div class="other-serv">
+					<h3>画师绘画&约稿资讯教程分享！</h3>
+                         {% for post in post_list %}
+					<div class="col-md-4 other-serv-grid">
+						 <a href=" {{ post.get_absolute_url }}"><h4>{{ post.title }}</h4></a>
+                        <p>{{ post.body|truncatechars:40 }}</p>
+						<p><span class="post-date"><a href="#"><time class="entry-date"
+                                                                      datetime="{{ post.created_time }}">{{ post.created_time }}</time></a></span></p>
+
+					</div>
+
+                        <h1 class="entry-title">
+
+                        </h1>
+
+
+
+
+
+            {% empty %}
+              <div class="no-post">暂时还没有发布的文章</div>
+            {% endfor %}
+
+
+
+				  <div class="clearfix"> </div>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!--services end here-->
+
+    {% endblock main %}
+
+
+
+</html>

@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load users_work %}
+    {% block main %}
+    <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Free Bootstrap Themes by Html5xCss3 dot com - Free Responsive Html5 Templates">
+    <meta name="author" content="#">
+
+    <title>SimplePix | Free Html5 Templates by </title>
+     <style>
+        .div1{
+            width:300px;
+            height:400px;
+            border:1px solid #4EC83B;
+            overflow: hidden;
+        }
+        .div1 img {
+            position: relative;
+            left: -100px;
+            top: -150px;
+        }
+         body{ text-align:center}
+        </style>
+	<link rel="stylesheet" href="{% static 'artist/css/menu.css' %}">
+
+	<!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'artist/css/style.css' %}">
+
+	<!-- Custom Fonts -->
+    <link rel="stylesheet" href="{% static 'artist/font-awesome-4.4.0/css/font-awesome.min.css' %}"  type="text/css">
+
+	<link rel="stylesheet" href="{% static 'artist/css/lightbox.css' %}">
+
+	<!-- Core JavaScript Files -->
+
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="{% static 'artist/js/html5shiv.js' %}"></script>
+        <script src="{% static 'artist/js/respond.min.js' %}"></script>
+    <![endif]-->
+</head>
+        <div class="banner-two">
+<div class="gallery">
+	<div class="container">
+
+		<div class="gallery-bottom">
+
+
+
+		   <div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<html lang="en">
+
+<body>
+
+
+    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
+	<div id="page-content" class="index-page">
+		<div id="container">
+			<!-- These are our grid blocks -->
+			{% if user.is_authenticated %}
+			<h3>{{user.username}}的投稿</h3>
+                {% for post in user.web_post.all %}
+                {{ post.title }}
+                {% endfor %}
+                                {% for post in user.web_work.all %}
+                                    <div style="float:left;margin:10px;">
+			<div class="item">
+				<a class="example-image-link" href="{{ post.work.url }}" data-lightbox="example-set" data-title="{{ post.intorduce }}"><img class="example-image" src="{{ post.work.url }}" alt=""height="400" width="400" /></a>
+				<div class="content-item">
+					<h3 class="title-item"><a href="single.html">{{ post.titles|truncatechars:12 }}</a></h3>
+					<div class="time">by---{{ post.author }}</div>
+                    <div class="time">tags:{{ post.tags }}</div>
+					<p class="info">{{ post.intorduce|truncatechars:30  }}</p>
+
+				</div>
+
+			</div>
+              </div>
+
+                {% endfor %}
+
+			{% else %}
+			<h3>暂时无法查看作品，请先登录哦！</h3>
+			 {% endif %}
+
+
+
+			</div>
+		</div>
+	</div>
+
+	More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+    <!-- Once the page is loaded, initialized the plugin. -->
+    <script type="text/javascript" src="{% static 'artist/js/jquery-2.1.1.js' %}" ></script>
+
+	<!-- jQuery Pinterest -->
+    <script type="text/javascript" src="{% static 'artist/js/jquery.pinto.js' %}"></script>
+    <script type="text/javascript" src="{% static 'artist/js/main.js' %}"></script>
+
+	<!-- Light Box -->
+	<script src="{% static 'artist/js/lightbox-plus-jquery.min.js' %}"></script>
+
+	<!-- Menu -->
+	<script src="{% static 'artist/js/script.js' %}"></script>
+
+	<script type="text/javascript">
+		$('#container').pinto();
+	</script>
+
+</body>
+</html>
+
+<link rel="stylesheet" type="text/css"  href="{% static 'artist/css/magnific-popup.css' %}">
+			<script type="text/javascript" src="{% static 'artist/js/nivo-lightbox.min.js' %}"></script>
+				<script type="text/javascript">
+				$(document).ready(function(){
+				    $('#nivo-lightbox-demo a').nivoLightbox({ effect: 'fade' });
+				});
+				</script>
+
+
+<!--gallery end here-->
+<!--footer start here-->
+<div class="footer">
+	<div class="container">
+		<div class="footer-main">
+			  <div class="col-md-4 ftr-grd">
+			  	 <h3>Get in Touch</h3>
+			  	 <p>8901 ibero  Road</p>
+			  	 <p>Nam libero tempore</p>
+			  	 <p>Phone: +148 5746 415</p>
+			  </div>
+			  <div class="col-md-4 ftr-grd">
+			  	 <h3>Follow Us</h3>
+			  	 <ul>
+			  	 	<li><a href="#"><span class="fa"> </span></a></li>
+			  	 	<li><a href="#"><span class="tw"> </span></a></li>
+			  	 	<li><a href="#"><span class="g"> </span></a></li>
+			  	 	<li><a href="#"><span class="in"> </span></a></li>
+			  	 </ul>
+			  </div>
+			  <div class="col-md-4 ftr-grd">
+			  	 <h3>Join Our Newsletter</h3>
+			  	 <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus </p>
+			  	 <label class="hvr-wobble-bottom"> <input type="submit" value="Send"></label>
+			  </div>
+			<div class="clearfix"> </div>
+			<div class="copy-right">
+			<p>Copyright &copy; 2015.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+		   </div>
+		</div>
+	</div>
+</div>
+
+    {% endblock main %}
